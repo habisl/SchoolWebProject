@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+	<title>Registration</title>
+	<link rel="shortcut icon" type="image/x-icon" href="css/images/logoicon.png" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css' />
+	
+<script src="js/jquery.js" type="text/javascript"></script>  <!-- I have taken the idea from here : http://www.tutorialspoint.com/javascript/javascript_form_validations.htm but mainly Customized this registration form to complete the project task for JavaScript form validation -->
+    <script type="text/javascript">
+        jQuery(window).load(function () {
+               jQuery('form#registration').submit(function () {
+                jQuery('form#registration .error').remove();
+                var hasError = false;
+                jQuery('.requiredField').each(function () {
+                    if (jQuery.trim(jQuery(this).val()) == '') {
+                        var labelText = jQuery(this).prev('label').text();
+                        jQuery(this).parent().append('<span class="error">Please complete the required fields.</span>');
+                        jQuery(this).addClass('inputError');
+                        hasError = true;
+                        jQuery(this).focus();
+                    } else if (jQuery(this).hasClass('email')) {
+                        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; //http://regexlib.com/DisplayPatterns.aspx?cattabindex=0&categoryId=1
+                        if (!emailReg.test(jQuery.trim(jQuery(this).val()))) {
+                            var labelText = jQuery(this).prev('label').text();
+                            jQuery(this).parent().append('<span class="error">You entered an invalid email</span>'); // http://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php
+                            jQuery(this).addClass('inputError');
+                            hasError = true;
+                            jQuery(this).focus();
+                        }
+                    }
+                    else if (jQuery(this).hasClass('phone')) {
+                        var phoneReg = /\(?([+0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{6})/; //http://regexlib.com/DisplayPatterns.aspx?cattabindex=6&categoryId=7
+                        if (!phoneReg.test(jQuery.trim(jQuery(this).val()))) {
+                            var labelText = jQuery(this).prev('label').text();
+                            jQuery(this).parent().append('<span class="error">You have entered an invalid phone number</span>');
+                            jQuery(this).addClass('inputError');
+                            hasError = true;
+                            jQuery(this).focus();
+                        }
+                    }
+                });
+                if (hasError) {
+ /*                   jQuery('form#contact_form input.submit').fadeOut('normal', function () {
+                        
+                    });*/
+                    //jQuery('form#contact_form input.submit').parent().append('<p>Thanks for registration</p>');
+                return false;
+                }
+
+                
+
+            });
+
+        });
+
+</script>
+	<!--[if lt IE 9]>
+		<script src="js/modernizr.custom.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- wraper -->
+	<div id="wrapper">
+		<!-- shell -->
+		<div class="shell">
+			<!-- container -->
+			<div class="container">
+				<!-- header -->
+				<header id="header">
+					<a href="index.html">
+					<img src="css/images/logo.png" alt="logo" width="200" height="89"/></a>
+				</header>
+				<!-- end of header -->
+				<!-- navigation -->
+				<nav id="navigation">
+					<a href="index.html" class="nav-btn">HOME<span class="arr"></span></a>
+					<ul>
+						<li class="index.html"><a href="index.html">HOME</a></li>
+						<li><a href="services.html">SERVICES</a></li>
+						<li><a href="pricing.html">PRICING</a></li>
+						<li><a href="members.html">MEMBERS</a></li>
+						<li><a href="contact.html">CONTACTS</a></li>
+                        <li><a href="active">REGISTRATION</a></li>
+					</ul>
+				  </nav>
+		   <!-- end of navigation -->
+              <div class="main content_full_width pricing">
+				<section class="content-cnt2">
+                    <div class="half">
+                       <div class="regborder">
+                           <article>
+                            <h2>INTERNATIONAL CONFERENCE ON ENGINEERING EDUCATION-2013 </h2>
+                           TURKU,FINLAND<br>
+                        <br><b>REGISTRATION</b>
+                        <p>The International Conference on Engineering Education 2012 iNEER(ICEE 2012) was arranged in Turku, Finland, on July 30 - August 3, 2012. The main theme of the conference was Contributing to Success through Innovations in Engineering Education.
+ICEE 2012 was the 2012 edition of the popular ICEE conference series sponsored around the world by the iNEER Network with 38,000 members in 98 countries. More than 240 colleagues from 32 different countries participated in the ICEE 2012 event. These pages provide information on the past event.</p>
+                       </article>
+                                <br>
+                        </div>
+                        <div class="regborder">
+                            <article>
+                        <h2>ACCOMODATION AND TOURS</h2>
+                        <p>In addition to the topical program and the conference materials, the full registration fee included lunches, refreshments and social events. The social events formed an important part of the ICEE 2012 experience and provided opportunities to discuss and network with colleagues and, naturally, to enjoy the Finnish hospitality and local culture.</p>
+                        <p>On Tuesday evening the City of Turku hosted a reception and wished all the conference participants welcome to Turku and Finland. The event was arranged in the lobby and located in the very heart of the city.Visit the conference website 
+                        <a target="_blank" href="http://www.icee2012.fi/">info@icee2012.fi.</a></p>
+                            </article>
+                        </div>
+
+             </div>
+                    
+                 <div class="half">  
+                    <h2>REGISTRATION FORM</h2>
+                  <p><b>Please Provide your personal details in the requred field below:</b></p>
+                     <br>
+                     
+               <form id="registration" action="thanks.html">
+                    <div class="regborder">
+                        <p>
+                        <label  for="title"><b>Title:</b></label>
+                        <br>
+                        <input type="radio" name="title" value="Prof"> Prof      
+                        <input type="radio" name="title" value="Dr"> Dr.       
+                        <input type="radio" name="title" value="Mr"> Mr.       
+                        <input type="radio" name="title" value="Mrs"> Mrs.
+                        </p>  
+                        <br> 
+                        
+                        
+                        <p><label><b>*First name:</b><br> </label>
+                        <input type="text"  id="firstname" name="firstname" class="requiredField firstname"></p>
+                        
+                        <p><b>*Last name:</b><br> 
+                        <input type="text" id="lastname" class="requiredField lastname" name="lastname">
+                        </p>
+                        <p><b>*Organization:</b><br>
+                        <input type="text" id="organization" name="organization" class="requiredField organization " >
+                        </p>
+                        <p><b>Position:</b><br>
+                        <input type="text" name="positiontion" >
+                        </p>
+                        <p><b>*Address(line 1):</b><br>
+                         <input type="text" id="address1" name="address1" class="requiredField address1">
+                        </p>
+                        <p><b>Address(line 2):</b><br>
+                         <input type="text" name="address2">
+                        </p>
+                        <p><b>Address(line 3):</b><br>
+                         <input type="text" name="address3">
+                        </p>
+                        <p><b>*City/state:</b><br>
+                        <input type="text" id="state" name="state" class="requiredField state">
+                        </p>
+                        <p><b>*Country:</b><br>
+                         <select name="Country" id="Country" class="requiredField Country"> 
+<option value="" selected="selected">Select Country</option> 
+<option value="United States">United States</option> 
+<option value="United Kingdom">United Kingdom</option> 
+<option value="Afghanistan">Afghanistan</option> 
+<option value="Albania">Albania</option> 
+<option value="Algeria">Algeria</option> 
+<option value="American Samoa">American Samoa</option> 
+<option value="Andorra">Andorra</option> 
+<option value="Angola">Angola</option> 
+<option value="Anguilla">Anguilla</option> 
+<option value="Antarctica">Antarctica</option> 
+<option value="Antigua and Barbuda">Antigua and Barbuda</option> 
+<option value="Argentina">Argentina</option> 
+<option value="Armenia">Armenia</option> 
+<option value="Aruba">Aruba</option> 
+<option value="Australia">Australia</option> 
+<option value="Austria">Austria</option> 
+<option value="Azerbaijan">Azerbaijan</option> 
+<option value="Bahamas">Bahamas</option> 
+<option value="Bahrain">Bahrain</option> 
+<option value="Bangladesh">Bangladesh</option> 
+<option value="Barbados">Barbados</option> 
+<option value="Belarus">Belarus</option> 
+<option value="Belgium">Belgium</option> 
+<option value="Belize">Belize</option> 
+<option value="Benin">Benin</option> 
+<option value="Bermuda">Bermuda</option> 
+<option value="Bhutan">Bhutan</option> 
+<option value="Bolivia">Bolivia</option> 
+<option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option> 
+<option value="Botswana">Botswana</option> 
+<option value="Bouvet Island">Bouvet Island</option> 
+<option value="Brazil">Brazil</option> 
+<option value="British Indian Ocean Territory">British Indian Ocean Territory</option> 
+<option value="Brunei Darussalam">Brunei Darussalam</option> 
+<option value="Bulgaria">Bulgaria</option> 
+<option value="Burkina Faso">Burkina Faso</option> 
+<option value="Burundi">Burundi</option> 
+<option value="Cambodia">Cambodia</option> 
+<option value="Cameroon">Cameroon</option> 
+<option value="Canada">Canada</option> 
+<option value="Cape Verde">Cape Verde</option> 
+<option value="Cayman Islands">Cayman Islands</option> 
+<option value="Central African Republic">Central African Republic</option> 
+<option value="Chad">Chad</option> 
+<option value="Chile">Chile</option> 
+<option value="China">China</option> 
+<option value="Christmas Island">Christmas Island</option> 
+<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option> 
+<option value="Colombia">Colombia</option> 
+<option value="Comoros">Comoros</option> 
+<option value="Congo">Congo</option> 
+<option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option> 
+<option value="Cook Islands">Cook Islands</option> 
+<option value="Costa Rica">Costa Rica</option> 
+<option value="Cote D'ivoire">Cote D'ivoire</option> 
+<option value="Croatia">Croatia</option> 
+<option value="Cuba">Cuba</option> 
+<option value="Cyprus">Cyprus</option> 
+<option value="Czech Republic">Czech Republic</option> 
+<option value="Denmark">Denmark</option> 
+<option value="Djibouti">Djibouti</option> 
+<option value="Dominica">Dominica</option> 
+<option value="Dominican Republic">Dominican Republic</option> 
+<option value="Ecuador">Ecuador</option> 
+<option value="Egypt">Egypt</option> 
+<option value="El Salvador">El Salvador</option> 
+<option value="Equatorial Guinea">Equatorial Guinea</option> 
+<option value="Eritrea">Eritrea</option> 
+<option value="Estonia">Estonia</option> 
+<option value="Ethiopia">Ethiopia</option> 
+<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option> 
+<option value="Faroe Islands">Faroe Islands</option> 
+<option value="Fiji">Fiji</option> 
+<option value="Finland">Finland</option> 
+<option value="France">France</option> 
+<option value="French Guiana">French Guiana</option> 
+<option value="French Polynesia">French Polynesia</option> 
+<option value="French Southern Territories">French Southern Territories</option> 
+<option value="Gabon">Gabon</option> 
+<option value="Gambia">Gambia</option> 
+<option value="Georgia">Georgia</option> 
+<option value="Germany">Germany</option> 
+<option value="Ghana">Ghana</option> 
+<option value="Gibraltar">Gibraltar</option> 
+<option value="Greece">Greece</option> 
+<option value="Greenland">Greenland</option> 
+<option value="Grenada">Grenada</option> 
+<option value="Guadeloupe">Guadeloupe</option> 
+<option value="Guam">Guam</option> 
+<option value="Guatemala">Guatemala</option> 
+<option value="Guinea">Guinea</option> 
+<option value="Guinea-bissau">Guinea-bissau</option> 
+<option value="Guyana">Guyana</option> 
+<option value="Haiti">Haiti</option> 
+<option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option> 
+<option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option> 
+<option value="Honduras">Honduras</option> 
+<option value="Hong Kong">Hong Kong</option> 
+<option value="Hungary">Hungary</option> 
+<option value="Iceland">Iceland</option> 
+<option value="India">India</option> 
+<option value="Indonesia">Indonesia</option> 
+<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option> 
+<option value="Iraq">Iraq</option> 
+<option value="Ireland">Ireland</option> 
+<option value="Israel">Israel</option> 
+<option value="Italy">Italy</option> 
+<option value="Jamaica">Jamaica</option> 
+<option value="Japan">Japan</option> 
+<option value="Jordan">Jordan</option> 
+<option value="Kazakhstan">Kazakhstan</option> 
+<option value="Kenya">Kenya</option> 
+<option value="Kiribati">Kiribati</option> 
+<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option> 
+<option value="Korea, Republic of">Korea, Republic of</option> 
+<option value="Kuwait">Kuwait</option> 
+<option value="Kyrgyzstan">Kyrgyzstan</option> 
+<option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option> 
+<option value="Latvia">Latvia</option> 
+<option value="Lebanon">Lebanon</option> 
+<option value="Lesotho">Lesotho</option> 
+<option value="Liberia">Liberia</option> 
+<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option> 
+<option value="Liechtenstein">Liechtenstein</option> 
+<option value="Lithuania">Lithuania</option> 
+<option value="Luxembourg">Luxembourg</option> 
+<option value="Macao">Macao</option> 
+<option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option> 
+<option value="Madagascar">Madagascar</option> 
+<option value="Malawi">Malawi</option> 
+<option value="Malaysia">Malaysia</option> 
+<option value="Maldives">Maldives</option> 
+<option value="Mali">Mali</option> 
+<option value="Malta">Malta</option> 
+<option value="Marshall Islands">Marshall Islands</option> 
+<option value="Martinique">Martinique</option> 
+<option value="Mauritania">Mauritania</option> 
+<option value="Mauritius">Mauritius</option> 
+<option value="Mayotte">Mayotte</option> 
+<option value="Mexico">Mexico</option> 
+<option value="Micronesia, Federated States of">Micronesia, Federated States of</option> 
+<option value="Moldova, Republic of">Moldova, Republic of</option> 
+<option value="Monaco">Monaco</option> 
+<option value="Mongolia">Mongolia</option> 
+<option value="Montserrat">Montserrat</option> 
+<option value="Morocco">Morocco</option> 
+<option value="Mozambique">Mozambique</option> 
+<option value="Myanmar">Myanmar</option> 
+<option value="Namibia">Namibia</option> 
+<option value="Nauru">Nauru</option> 
+<option value="Nepal">Nepal</option> 
+<option value="Netherlands">Netherlands</option> 
+<option value="Netherlands Antilles">Netherlands Antilles</option> 
+<option value="New Caledonia">New Caledonia</option> 
+<option value="New Zealand">New Zealand</option> 
+<option value="Nicaragua">Nicaragua</option> 
+<option value="Niger">Niger</option> 
+<option value="Nigeria">Nigeria</option> 
+<option value="Niue">Niue</option> 
+<option value="Norfolk Island">Norfolk Island</option> 
+<option value="Northern Mariana Islands">Northern Mariana Islands</option> 
+<option value="Norway">Norway</option> 
+<option value="Oman">Oman</option> 
+<option value="Pakistan">Pakistan</option> 
+<option value="Palau">Palau</option> 
+<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option> 
+<option value="Panama">Panama</option> 
+<option value="Papua New Guinea">Papua New Guinea</option> 
+<option value="Paraguay">Paraguay</option> 
+<option value="Peru">Peru</option> 
+<option value="Philippines">Philippines</option> 
+<option value="Pitcairn">Pitcairn</option> 
+<option value="Poland">Poland</option> 
+<option value="Portugal">Portugal</option> 
+<option value="Puerto Rico">Puerto Rico</option> 
+<option value="Qatar">Qatar</option> 
+<option value="Reunion">Reunion</option> 
+<option value="Romania">Romania</option> 
+<option value="Russian Federation">Russian Federation</option> 
+<option value="Rwanda">Rwanda</option> 
+<option value="Saint Helena">Saint Helena</option> 
+<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+<option value="Saint Lucia">Saint Lucia</option> 
+<option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option> 
+<option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option> 
+<option value="Samoa">Samoa</option> 
+<option value="San Marino">San Marino</option> 
+<option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+<option value="Saudi Arabia">Saudi Arabia</option> 
+<option value="Senegal">Senegal</option> 
+<option value="Serbia and Montenegro">Serbia and Montenegro</option> 
+<option value="Seychelles">Seychelles</option> 
+<option value="Sierra Leone">Sierra Leone</option> 
+<option value="Singapore">Singapore</option> 
+<option value="Slovakia">Slovakia</option> 
+<option value="Slovenia">Slovenia</option> 
+<option value="Solomon Islands">Solomon Islands</option> 
+<option value="Somalia">Somalia</option> 
+<option value="South Africa">South Africa</option> 
+<option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option> 
+<option value="Spain">Spain</option> 
+<option value="Sri Lanka">Sri Lanka</option> 
+<option value="Sudan">Sudan</option> 
+<option value="Suriname">Suriname</option> 
+<option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option> 
+<option value="Swaziland">Swaziland</option> 
+<option value="Sweden">Sweden</option> 
+<option value="Switzerland">Switzerland</option> 
+<option value="Syrian Arab Republic">Syrian Arab Republic</option> 
+<option value="Taiwan, Province of China">Taiwan, Province of China</option> 
+<option value="Tajikistan">Tajikistan</option> 
+<option value="Tanzania, United Republic of">Tanzania, United Republic of</option> 
+<option value="Thailand">Thailand</option> 
+<option value="Timor-leste">Timor-leste</option> 
+<option value="Togo">Togo</option> 
+<option value="Tokelau">Tokelau</option> 
+<option value="Tonga">Tonga</option> 
+<option value="Trinidad and Tobago">Trinidad and Tobago</option> 
+<option value="Tunisia">Tunisia</option> 
+<option value="Turkey">Turkey</option> 
+<option value="Turkmenistan">Turkmenistan</option> 
+<option value="Turks and Caicos Islands">Turks and Caicos Islands</option> 
+<option value="Tuvalu">Tuvalu</option> 
+<option value="Uganda">Uganda</option> 
+<option value="Ukraine">Ukraine</option> 
+<option value="United Arab Emirates">United Arab Emirates</option> 
+<option value="United Kingdom">United Kingdom</option> 
+<option value="United States">United States</option> 
+<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option> 
+<option value="Uruguay">Uruguay</option> 
+<option value="Uzbekistan">Uzbekistan</option> 
+<option value="Vanuatu">Vanuatu</option> 
+<option value="Venezuela">Venezuela</option> 
+<option value="Viet Nam">Viet Nam</option> 
+<option value="Virgin Islands, British">Virgin Islands, British</option> 
+<option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option> 
+<option value="Wallis and Futuna">Wallis and Futuna</option> 
+<option value="Western Sahara">Western Sahara</option> 
+<option value="Yemen">Yemen</option> 
+<option value="Zambia">Zambia</option> 
+<option value="Zimbabwe">Zimbabwe</option>
+</select>
+                         
+                        </p>
+                        <p><b>Mobile/Phone:</b><br>
+                        <input type="number" placeholder="+358458841430 or +358458841430 ext 23" class="requiredField phone" name="phonenumber">
+                        </p>
+                        <p><b>*Email address:</b><br>
+                        <input type="email" id="user_email" placeholder="Please input a valid email address" name="user_email" class="requiredField email">
+                        </p>
+                        <p><b>Dietary requrements:</b><br>
+                        <textarea rows="4" cols="50" name="comment" form="usrform"></textarea> </p>
+                        <p><b>Accompayning person's name:</b><br> 
+                        <input type="text" name="a_name"> </p>
+                        <p><b>My contact details can be included in the list of participants:</b><br>
+                        <select>
+                         <option value="Yes">Yes</option>
+                         <option value="No">No</option> 
+                        </select> </p>
+                        </div>
+                    
+                   <div class="regborder">
+
+                        <h4>REGISTRATION TYPE</h4>
+                        <p>
+                        <select>
+                         <option value="delegate">Full delegate</option>
+                         <option value="student">Student</option> 
+                        </select>
+                        </p>
+                        <br>
+                       <p>
+                        <strong>Note:</strong><br>
+                        If you want to attend as a day delegate or more than one day please contact <a target="_blank" href="http://www.icee2012.fi/">info@icee2012.fi.</a>
+                        <br>
+                        <br>
+                            If you select student delegate type,please email proof of student status and scaaned copy shoul be sent to <a target="_blank" href="http://www.icee2012.fi/">info@icee2012.fi.</a>
+                        </p>
+                         </div>
+
+                    <div class="regborder">
+
+                        <h4>CATERING AND SOCIAL EVENTS</h4><br>
+                            <strong>Catering</strong><br>
+                                 <p>Please confirm the days you will attend the conference with required catering:</p>
+                            <p>
+                            <input type="checkbox" name="days" value="Tuesday"> Tuesday <span></span> 
+                            <input type="checkbox" name="days" value="Wednesday"> Wednesday <span></span>
+                            <input type="checkbox" name="days" value="Thursday"> Thursday
+                            <input type="checkbox" name="days" value="Friday"> Friday
+                           </p>
+                        
+                        <br>
+
+                        <h4>Social Events</h4>
+                                <p>Please select relevent evening functions you wish to attend The full early registration fee corresponds to approx. 650 euro as announced in the first version of the Call for Papers and persons registration fees only.</p>
+                           <br>
+                           <p>
+                            <input type="checkbox" name="social-events" value="gettogether"> Gettogether events(Monday,July 30)<br>
+                            <input type="checkbox" name="social-events" value="Wreception"> Welcome Reception(Tuesday,July 31)<br>
+                            <input type="checkbox" name="social-events" value="GalaDinner"> Gala Dinner and award ceremony(August 1)
+                            </p>
+                        <br>
+                        </div>
+                            <input class="css3button submit" type="submit" name="submit" value="SUBMIT AND PROCEED TO THE NEXT">
+                   </form> 
+            </div>
+                   
+ <div class="content_last">
+        
+        <br>
+             </div>
+                    </section>
+						</div>
+				
+				<!-- end of main -->
+				<div id="footer">
+					<div class="footer-cols">
+						<div class="col">
+							<h2>Services</h2>
+							<ul>
+								<li><a href="#">Hi-tech Video CV</a></li>
+								<li><a href="#">Normal Video CV</a></li>
+								<li><a href="#">Hi-Tech Video Portfolio</a></li>
+								<li><a href="#">Product Presentation</a></li>
+							</ul>
+						</div>
+						<div class="col">
+							<h2>Our Projects</h2>
+							<ul>
+								<li><a href="http://www.youtube.com/watch?v=0oHhD3Bk9Uc" target="_blank"> Our customer's Video CV </a></li> <!--Sorry! I dont have any copyright just for example I have added this link -->
+								<li><a href="http://www.youtube.com/watch?v=b5SEoHU9O04" target="_blank"> A Hi-Tech portfolio Project</a></li> <!--Sorry! I dont have any copyright just for example I have added this link -->
+								<li><a href="http://www.youtube.com/watch?v=uCorsEeUwAQ" target="_blank">Product Presentation Sample </a></li>
+					</ul>
+						</div>
+						<div class="col">
+							<h2>Solutions</h2>
+							<ul>
+								<li><a href="#">Online based Video Marketing</a></li>
+								<li><a href="#">New video Resume</a></li>
+								<li><a href="#">Authentic marketing </a></li>
+								
+							</ul>
+						</div>
+						<div class="col">
+							<h2>Partners</h2>
+							<ul>
+								<li><a href="http://coffeematch.pe-tuas.fi">Coffee Match</a></li>
+								<li><a href="http://zenpunch.pe-tuas.fi">Zen Punch</a></li>
+								<li><a href="http://ecofurnishing.pe-tuas.fi">Eco-Furnishing</a></li>
+								<li><a href="http://meetbee.pe-tuas.fi/">MeetBee</a></li>
+                                <li><a href="http://9lives.pe-tuas.fi">9 Lives</a></li>
+                                <li><a href="http://finnep.pe-tuas.fi/">Finnep</a></li>
+							</ul>
+						</div>
+						<div class="cl">&nbsp;</div>
+					</div>
+					<!-- end of footer-cols -->
+					<div class="footer-bottom">
+						<nav class="footer-nav">
+							<ul>
+								<li class="index.html"><a href="index.html">Home</a></li>
+								<li><a href="services.html">Services</a></li>
+								<li><a href="pricing.html">Pricing</a></li>
+								<li><a href="members.html">Members</a></li>
+								<li><a href="active">Contacts</a></li>
+								<li><a href="registration.html">Registration</a></li>
+							</ul>
+						</nav>
+						<p class="copy"><strong>Email us: <a href="mailto:habibul.islam@students.turkuamk.fi?Subject=Hello%20again" target="_blank">Send Email</a></strong></p>
+						<div class="cl">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of container -->	
+		</div>
+		<!-- end of shell -->	
+	</div>
+	<!-- end of wrapper -->
+</body>
+</html>
